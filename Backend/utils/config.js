@@ -1,0 +1,24 @@
+module.exports = {
+    SCHEMAS:{
+        USERS:'users',
+        MOVIE_LIST:'movie_list'
+    },
+    STATUS_CODES:{
+        SUCCESS:200,
+        SUCCESS2:201,
+        SERVER_CRASH:500,
+        NOT_FOUND:404
+    },
+    ROUTES:{
+        ROOT:'/',
+        USER:{
+            LOGIN:'/login',
+            REGISTER:'/register',
+            CHECK_EMAIL:'/check_email',
+            ACTIVATE_ACC:'/activate_acc',
+            CHECK_OTP:'/check_otp',
+            FORGOT_PASS:'/forgot_pass',
+            ACC_RECOVER:'/acc_recover',
+        },
+   }
+}
