@@ -15,6 +15,20 @@ module.exports = {
       console.log("ERROR is : ", err);
     }
   },
+  async find_by_user_id(user_id) {
+    try {
+      var user = await UserModel.findOne({
+        user_id: user_id,
+      });
+      if (user) {
+        return user;
+      } else {
+        return null;
+      }
+    } catch (err) {
+      console.log("ERROR is : ", err);
+    }
+  },
   register(userObject) {
     userObject.password = encryption.generateHash(userObject.password);
     let promise = UserModel.create(userObject);

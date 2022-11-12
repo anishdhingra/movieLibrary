@@ -25,6 +25,23 @@ const userController = {
         .json({ message: messageBundle["unsuccessful"], ERROR: err });
     }
   },
+  async check_user_id(request, response) {
+    try {
+      var user_id = request.body.user_id;
+      var check = await userOperations.find_by_user_id(user_id);
+      if (check == null) {
+        response.status(SUCCESS).json({ message: messageBundle["successful"] });
+      } else {
+        response
+          .status(SERVER_CRASH)
+          .json({ message: messageBundle["uname.already_used"] });
+      }
+    } catch (err) {
+      response
+        .status(SERVER_CRASH)
+        .json({ message: messageBundle["unsuccessful"], ERROR: err });
+    }
+  },
   register(request, response) {
     var key = jwt.generatekey();
     let userObject = {
