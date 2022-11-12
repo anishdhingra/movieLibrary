@@ -10,21 +10,21 @@ module.exports = {
     const promise = MovieListModel.find({ isPrivate: false });
     return promise;
   },
-  switchMovieListVisibility(user_id, visibility) {
+  switchMovieListVisibility(user_id, list_name, visibility) {
     const promise = MovieListModel.updateOne(
-      { user_id: user_id },
+      { user_id: user_id, name: list_name },
       { $set: { isPrivate: visibility } }
     );
     return promise;
   },
   getMyMovieList(user_id) {
-    const promise = MovieListModel.findOne({ user_id: user_id });
+    const promise = MovieListModel.find({ user_id: user_id });
     return promise;
   },
-  async addToMovieList(user_id, movie_id) {
+  async addToMovieList(user_id,list_name ,movie_id) {
     try {
       const promise = await MovieListModel.updateOne(
-        { user_id: user_id },
+        { user_id: user_id ,name:list_name},
         { $addToSet: { movie_list: movie_id } }
       );
       if (promise.modifiedCount == 1) {
@@ -41,10 +41,10 @@ module.exports = {
       return { status: SERVER_CRASH, response: error.toString() };
     }
   },
-  async removeFromMovieList(user_id, movie_id) {
+  async removeFromMovieList(user_id, list_name,movie_id) {
     try {
       const promise = await MovieListModel.updateOne(
-        { user_id: user_id },
+        { user_id: user_id ,name:list_name},
         { $pull: { movie_list: movie_id } }
       );
       if (promise.modifiedCount == 1) {
@@ -61,4 +61,8 @@ module.exports = {
       return { status: SERVER_CRASH, response: error.toString() };
     }
   },
+  deleteList(user_id,list_name){
+    const promise = MovieListModel.deleteOne({user_id:user_id,name:list_name});
+    return promise;
+  }
 };

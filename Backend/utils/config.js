@@ -25,7 +25,9 @@ module.exports = {
             SWITCH_MOVIE_LIST_VISIBILITY:'/switch_movie_list_visibility',
             GET_MY_MOVIE_LIST:'/get_my_movie_list',
             ADD_TO_MOVIE_LIST:'/add_to_movie_list',
-            REMOVE_FROM_MOVIE_LIST:'/remove_from_movie_list'
+            REMOVE_FROM_MOVIE_LIST:'/remove_from_movie_list',
+            CREATE_MOVIE_LIST:'/create_movie_list',
+            DELETE_MOVIE_LIST:'/delete_movie_list'
         }
    }
 }

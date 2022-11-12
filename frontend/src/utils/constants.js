@@ -1,0 +1,23 @@
+export const Constants = {
+    ROUTES:{
+        WELCOME:'/',
+        HOME:'/home',
+        LOGIN:'/login',
+        REGISTER:'/register',
+        MOVIE_DETAIL:'/movie_detail',
+        MY_MOVIE_LIST:'/my_movie_list',
+        PUBLIC_MOVIE_LIST:'/public_movie_list',
+    },
+    VALUE:{
+        EMPTY:""
+    },
+    API_ROUTES:{
+        REGISTER:'/register',
+        LOGIN:'/login'
+    },
+    STATUS_CODES:{
+        SUCCESS:200,
+        SERVER_CRASH:500,
+        NOT_FOUND:404
+    },
+}

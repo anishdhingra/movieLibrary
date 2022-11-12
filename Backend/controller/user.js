@@ -66,7 +66,6 @@ const userController = {
           movie_list: [],
           isPrivate: request.body.list_visibility,
         };
-        movieListOperations.createMovieList(object);
         response
           .status(SUCCESS)
           .json({ message: messageBundle["register.welcome"], doc: doc });
