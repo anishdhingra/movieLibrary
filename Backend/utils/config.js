@@ -20,5 +20,12 @@ module.exports = {
             FORGOT_PASS:'/forgot_pass',
             ACC_RECOVER:'/acc_recover',
         },
+        MOVIE_LIST:{
+            GET_ALL_PUBLIC_MOVIE_LIST:'/get_all_public_movie_list',
+            SWITCH_MOVIE_LIST_VISIBILITY:'/switch_movie_list_visibility',
+            GET_MY_MOVIE_LIST:'/get_my_movie_list',
+            ADD_TO_MOVIE_LIST:'/add_to_movie_list',
+            REMOVE_FROM_MOVIE_LIST:'/remove_from_movie_list'
+        }
    }
 }

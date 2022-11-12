@@ -6,8 +6,25 @@ const messageBundle = require("../locales/en");
 const emailBundle = require("../locales/mailcontent");
 const userOperations = require("../db/services/user_crud");
 const jwt = require("../utils/token");
-const movieListOperations = require('../db/services/movie_list_crud');
+const movieListOperations = require("../db/services/movie_list_crud");
 const userController = {
+  async check_email(request, response) {
+    try {
+      var email = request.body.email;
+      var check = await userOperations.find_by_email(email);
+      if (check == null) {
+        response.status(SUCCESS).json({ message: messageBundle["successful"] });
+      } else {
+        response
+          .status(SERVER_CRASH)
+          .json({ message: messageBundle["email.already_used"] });
+      }
+    } catch (err) {
+      response
+        .status(SERVER_CRASH)
+        .json({ message: messageBundle["unsuccessful"], ERROR: err });
+    }
+  },
   register(request, response) {
     var key = jwt.generatekey();
     let userObject = {
@@ -38,7 +55,7 @@ const userController = {
           .json({ message: messageBundle["register.welcome"], doc: doc });
       })
       .catch((err) => {
-        console.log("error is ",err)
+        console.log("error is ", err);
         response
           .status(SERVER_CRASH)
           .json({ message: messageBundle["register.fail"], err: err.toString });
