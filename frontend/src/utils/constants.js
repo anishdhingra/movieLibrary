@@ -13,7 +13,9 @@ export const Constants = {
     },
     API_ROUTES:{
         REGISTER:'/register',
-        LOGIN:'/login'
+        LOGIN:'/login',
+        GET_PUBLIC_MOVIE_LIST:'/get_all_public_movie_list',
+        GET_MY_MOVIE_LIST:'/get_my_movie_list'
     },
     STATUS_CODES:{
         SUCCESS:200,

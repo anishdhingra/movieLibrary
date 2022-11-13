@@ -7,13 +7,13 @@ module.exports = {
     return promise;
   },
   getAllPublicMovieList() {
-    const promise = MovieListModel.find({ isPrivate: false });
+    const promise = MovieListModel.find({ list_visibility: 'public' });
     return promise;
   },
   switchMovieListVisibility(user_id, list_name, visibility) {
     const promise = MovieListModel.updateOne(
       { user_id: user_id, name: list_name },
-      { $set: { isPrivate: visibility } }
+      { $set: { list_visibility: visibility } }
     );
     return promise;
   },
