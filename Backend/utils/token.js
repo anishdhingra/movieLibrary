@@ -4,7 +4,7 @@ module.exports = {
   generateToken(doc) {
     doc.createdAt = undefined;
     doc.updatedAt = undefined;
-    let tokenId = jwt.sign({ object: doc }, this.secret, { expiresIn: "2h" });
+    let tokenId = jwt.sign({ object: doc }, this.secret, { expiresIn: "24h" });
     return tokenId;
   },
   verifyToken(tokenId) {
