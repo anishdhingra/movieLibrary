@@ -7,9 +7,7 @@ export const Constants = {
         MOVIE_DETAIL:'/movie_detail',
         MY_MOVIE_LIST:'/my_movie_list',
         PUBLIC_MOVIE_LIST:'/public_movie_list',
-    },
-    VALUE:{
-        EMPTY:""
+        CREATE_LIST:'/create_list'
     },
     API_ROUTES:{
         REGISTER:'/register',
